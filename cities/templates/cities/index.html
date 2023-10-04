@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cities</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>List of Cities</h1>
+        <ul class="list-group">
+            {% for city in cities %}
+                <li class="list-group-item">{{ city.name }}</li>
+            {% endfor %}
+        </ul>
+        <h1>List of Country</h1>
+        <ul class="list-group">
+            {% for country in countries %}
+                <li class="list-group-item">{{ country.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
