@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cities</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>List of Cities</h1>
+        <ul class="list-group" id = "city-list" style="max-height: 200px; overflow-y: scroll;">
+            {% for city in cities %}
+                <li class="list-group-item">{{ city.name }}</li>
+                <ul>
+                    <li class="list-group-item">{{ city.description }}</li>
+                </ul>
+            {% endfor %}
+        </ul>
+        <h1>List of Countries</h1>
+        <ul class="list-group">
+            {% for country in countries %}
+                <li class="list-group-item">{{ country.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+<!-- Include Bootstrap JavaScript (jQuery is included with it) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript to handle list item click events
+        document.addEventListener("DOMContentLoaded", function() {
+            const listItems = document.querySelectorAll(".list-group-item");
+
+            listItems.forEach(function(item) {
+                item.addEventListener("click", function() {
+                    // Remove active class from all items
+                    listItems.forEach(function(li) {
+                        li.classList.remove("active");
+                    });
+
+                    // Add active class to the clicked item
+                    item.classList.add("active");
+
+                    setTimeout(function() {
+                        item.classList.remove("active");
+                    }, 100);
+
+                });
+            });
+        });
+    </script>
+</body>
+</html>
